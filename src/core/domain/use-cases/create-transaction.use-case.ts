@@ -2,7 +2,6 @@
 import { Result } from '../../utils/result';
 import { ProductRepository } from '../repositories/product.repository';
 import { TransactionRepository } from '../repositories/transaction.repository';
-import { ProductEntity } from '../entities/product.entity';
 import { TransactionEntity } from '../entities/transaction.entity';
 
 class CreateTransactionUseCase {

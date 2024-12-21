@@ -12,10 +12,15 @@ export class TypeOrmProductRepository implements ProductRepository {
   ) {}
 
   async findById(productId: string): Promise<ProductEntity | null> {
-    return this.repository.findOne({ where: { id: productId } });
+    console.log(`Searching product with ID: ${productId}`);
+    const product = await this.repository.findOne({ where: { id: productId } });
+    console.log(`Product found:`, product);
+    return product || null;
   }
 
   async updateStock(productId: string, stock: number): Promise<void> {
+    console.log(`Updating stock for product ${productId} to ${stock}`);
     await this.repository.update(productId, { stock });
+    console.log(`Stock updated successfully`);
   }
 }
